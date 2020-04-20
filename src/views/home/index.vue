@@ -3,9 +3,11 @@
     <home-banner></home-banner>
     <home-header></home-header>
     <home-nav :nav_data="nav_data"></home-nav>
-    <news-text></news-text>
-    <news-pic></news-pic>
-    <news-three></news-three>
+    <div class="main">
+      <news-text :news_text_data="news_text_data"></news-text>
+      <news-pic></news-pic>
+      <news-three></news-three>
+    </div>
   </div>
 </template>
 
@@ -79,14 +81,7 @@ export default {
           type: 1
         }
       ],
-      news_text: [
-        {
-          title: "助力战“疫”复工复产 习近平为当前网信工作指明方向",
-          from: "人民网",
-          comment: "14",
-          time: "1小时前",
-          type: 1
-        },
+      news_text_data: [
         {
           title: "助力战“疫”复工复产 习近平为当前网信工作指明方向",
           from: "人民网",
@@ -102,4 +97,8 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.main{
+  width: 100%;
+  margin: 80px 15px 0 15px;
+}
 </style>
