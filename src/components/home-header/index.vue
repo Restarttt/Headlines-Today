@@ -9,7 +9,7 @@
         </a>
         <i class="update"></i>
       </div>
-      <div class="search_glass"></div>
+      <div class="search_glass" @click="go()"></div>
     </div>
   </div>
 </template>
@@ -22,14 +22,17 @@ export default {
     return {};
   },
   computed: {},
-  methods: {}
+  methods: {
+    go(){
+      this.$router.push('/serach')
+    }
+  }
 };
 </script>
 <style scoped>
-  /* <!-- 顶部今日头条 --> */
+/* <!-- 顶部今日头条 --> */
 .home-header {
   width: 100%;
-
   position: fixed;
   top: 0;
   left: 0;
@@ -49,6 +52,18 @@ export default {
   background: url(https://s3.pstatp.com/growth/mobile_list/image/feed_ic_message_normal@3x_f2ea949f.png)
     no-repeat;
   background-size: contain;
+  position: relative;
+}
+.messages::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  z-index: 10;
+  right: 5px;
+  top: 2px;
 }
 /*  center pic*/
 .logo_update {
@@ -74,10 +89,11 @@ export default {
   right: -25px;
   top: 2px;
 }
-.search_glass{
- width: 25px;
- height: 25px;
- background: url(https://s3.pstatp.com/growth/mobile_list/image/feed_ic_search_normal@3x_0f198e56.png) no-repeat;
- background-size: 24px;
+.search_glass {
+  width: 25px;
+  height: 25px;
+  background: url(https://s3.pstatp.com/growth/mobile_list/image/feed_ic_search_normal@3x_0f198e56.png)
+    no-repeat;
+  background-size: 24px;
 }
 </style>

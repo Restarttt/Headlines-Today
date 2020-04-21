@@ -63,6 +63,8 @@ ul li {
 ul li span {
   color: #505050;
   line-height: 37px;
+  font-size: 16px;
+  font-weight: 500;
 }
 /* 字体样式 */
 li.frist_nav span {

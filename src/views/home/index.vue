@@ -4,9 +4,11 @@
     <home-header></home-header>
     <home-nav :nav_data="nav_data"></home-nav>
     <div class="main">
-      <news-text :news_text_data="news_text_data"></news-text>
-      <news-pic></news-pic>
-      <news-three></news-three>
+      <div class="submain">
+        <news-text :news_text_data="news_text_data"></news-text>
+        <news-pic :news_pic_data="news_pic_data"></news-pic>
+        <news-three :news_three_data='news_three_data'></news-three>
+      </div>
     </div>
   </div>
 </template>
@@ -89,6 +91,28 @@ export default {
           time: "1小时前",
           type: 1
         }
+      ],
+      news_pic_data: [
+        {
+          title: "总统表态：向中国索赔不可接受",
+          from: "新京报",
+          img: "https://p3.pstatp.com/list/pgc-image/RwfXWS89t8zeTK",
+          comment: "6",
+          time: "",
+          type: -1
+        }
+      ],
+      news_three_data: [
+        {
+          title: "《清平乐》里的求不得、爱别离……",
+          from: "中国妇女报",
+          img_1: "https://p3.pstatp.com/list/pgc-image/RwMIG8063VXjPW",
+          img_2: "https://p3.pstatp.com/list/pgc-image/RwMIG8V9lpB1m9",
+          img_3: "https://p3.pstatp.com/list/pgc-image/RwMIG97JClxFy",
+          comment: "17",
+          time: "2小时前",
+          type: -1
+        }
       ]
     };
   },
@@ -97,8 +121,11 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.main{
+.main {
   width: 100%;
-  margin: 80px 15px 0 15px;
+  margin-top: 80px;
+}
+.submain {
+  margin: 0 15px;
 }
 </style>
