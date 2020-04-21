@@ -1,7 +1,7 @@
 <template>
   <!-- 三张图模块 -->
   <div class="news-three">
-    <div class="news_three" v-for="(item,index) of news_three_data" :key="index">
+    <div class="news_three" v-for="(item,index) of news_three_data" :key="index" @click="go()">
       <h3>{{item.title}}</h3>
       <div class="news_img">
         <img :src='item.img_1' alt />
@@ -11,9 +11,9 @@
       <div class="abstrcat">
         <i v-if="item.type == 0">置顶</i>
         <i v-if="item.type == 1">热</i>
-        <span>{{item.from}}</span>
+        <span v-if="item.form">{{item.from}}</span>
         <span>评论 {{item.comment}}</span>
-        <span>{{item.time}}</span>
+        <span span v-if="item.time">{{item.time}}</span>
       </div>
     </div>
   </div>
@@ -32,7 +32,11 @@ export default {
     return {};
   },
   computed: {},
-  methods: {}
+  methods: {
+    go(){
+      this.$router.push('/detail')
+    }
+  }
 };
 </script>
 <style  scoped>

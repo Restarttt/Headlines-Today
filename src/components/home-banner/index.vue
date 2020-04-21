@@ -1,5 +1,5 @@
 <template>
-  <!-- 固定盒子APP -->
+  <!-- 固定盒子APP下方的 -->
   <div class="home-banner">
     <div class="banner">
       <div class="banner_l">
@@ -27,7 +27,7 @@ export default {
 <style  scoped>
 .home-banner {
   width: 100%;
-  height: 45px;
+  height: 50px;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -39,6 +39,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 0 15px;
+  line-height: 40px;
 }
 .banner_l i {
   display: inline-block;
@@ -50,6 +51,8 @@ export default {
   line-height: 36px;
   vertical-align: middle;
   margin-right: 10px;
+  border: 1px solid #eee;
+  border-radius: 7px;
 }
 span {
   font-weight: 500;

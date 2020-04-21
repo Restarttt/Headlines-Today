@@ -3,7 +3,7 @@
   <div class="search">
     <search-logo></search-logo>
     <search-box></search-box>
-    <search-list :list_data='search_list_data'></search-list>
+    <search-list :list_data="search_list_data"></search-list>
   </div>
 </template>
 <script>
@@ -37,6 +37,30 @@ export default {
           name: "高福谈人传人现象",
           max: "403.0万",
           type: 1
+        },
+        {
+          num: 4,
+          name: "哈尔滨第二医院停诊",
+          max: "326.6万",
+          type: 2
+        },
+        {
+          num: 4,
+          name: "哈尔滨第二医院停诊",
+          max: "326.6万",
+          type: 2
+        },
+        {
+          num: 4,
+          name: "哈尔滨第二医院停诊",
+          max: "326.6万",
+          type: 2
+        },
+        {
+          num: 4,
+          name: "哈尔滨第二医院停诊",
+          max: "326.6万",
+          type: 2
         },
         {
           num: 4,

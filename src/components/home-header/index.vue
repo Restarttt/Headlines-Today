@@ -9,10 +9,10 @@
         </a>
         <i class="update"></i>
       </div>
-      <router-link to="/search">
-        <div class="search_glass" ></div>
-      </router-link>
-      <router-view />
+      <!-- <router-link to="/search"> -->
+        <div class="search_glass" @click="go()" ></div>
+      <!-- </router-link> 
+      <router-view />-->
     </div>
   </div>
 </template>
@@ -26,9 +26,9 @@ export default {
   },
   computed: {},
   methods: {
-    // go(){
-    //   return  this.$router.push('/serach')
-    // }
+    go(){
+       this.$router.push('/search')
+    }
   }
 };
 </script>

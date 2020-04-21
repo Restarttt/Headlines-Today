@@ -4,6 +4,8 @@
     <div class="search_logo">
       <img
         src="https://sf1-ttcdn-tos.pstatp.com/obj/card-system/HeadBar/dist_browser/images/logo.545e6c99.png"
+      width="130px"
+      height="54px"
       />
     </div>
   </div>

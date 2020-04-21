@@ -16,6 +16,12 @@ const routes = [{
         component: () =>
             import ('../views/search/index.vue')
 
+    },
+    {
+        path: '/detail',
+        name: 'Detail',
+        component: () =>
+            import ('../views/detail/index.vue')
     }
 
 ]

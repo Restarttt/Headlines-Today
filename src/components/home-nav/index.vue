@@ -4,7 +4,7 @@
     <div class="home_nav">
       <ul>
         <li v-for="(item,index) of nav_data" :key="index" :class="{frist_nav:item.type == 0}">
-          <span>{{item.name}}</span>
+          <span >{{item.name}}</span>
         </li>
       </ul>
       <div class="nav_icon">
@@ -27,7 +27,11 @@ export default {
     return {};
   },
   computed: {},
-  methods: {}
+  methods: {
+    go(){
+
+    }
+  }
 };
 </script>
 <style scoped>
@@ -58,13 +62,17 @@ ul::-webkit-scrollbar {
 
 ul li {
   display: inline-block;
-  padding: 0 15px;
+  padding: 0 5px;
 }
 ul li span {
   color: #505050;
   line-height: 37px;
   font-size: 16px;
   font-weight: 500;
+  padding: 5px 10px;
+}
+ul li span:active{
+
 }
 /* 字体样式 */
 li.frist_nav span {

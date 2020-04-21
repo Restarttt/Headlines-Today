@@ -1,15 +1,15 @@
 <template>
   <!-- 右图模块 -->
   <div class="news-pic">
-    <div class="news_pic" v-for="(item,index) of news_pic_data" :key="index">
+    <div class="news_pic" v-for="(item,index) of news_pic_data" :key="index"  @click='go()'>
       <div class="news_l">
         <h3>{{item.title}}</h3>
         <div class="abstrcat">
           <i v-if="item.type == 0">置顶</i>
           <i v-if="item.type == 1">热</i>
-          <span>{{news_pic_data.from}}</span>
+          <span v-if="item.form">{{news_pic_data.from}}</span>
           <span>评论 {{item.comment}}</span>
-          <span>{{item.time}}</span>
+          <span v-if="item.time">{{item.time}}</span>
         </div>
       </div>
       <div class="news_r">
@@ -32,7 +32,11 @@ export default {
     return {};
   },
   computed: {},
-  methods: {}
+  methods: {
+      go(){
+      this.$router.push('/detail')
+    }
+  }
 };
 </script>
 <style  scoped>

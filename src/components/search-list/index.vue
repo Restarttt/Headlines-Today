@@ -18,7 +18,9 @@
         <ul>
           <li v-for="(item,index) of list_data" :key="index">
             <div class="list_l">
-              <span class="num">{{item.num}}</span>
+              <span
+                :class="{'num_1':item.type ===1,'num_2':item.type===2,'num_3':item.num == 3}"
+              >{{item.num}}</span>
               <span class="headline">{{item.name}}</span>
               <i v-if="item.num <= 3"></i>
             </div>
@@ -29,7 +31,12 @@
         </ul>
       </div>
       <div class="more">
-        <span></span>
+        <span>更多热搜</span>
+        <img
+          src="https://sf1-ttcdn-tos.pstatp.com/obj/card-system/HeadBar/dist_browser/images/arrow-right-3x.85440730.png"
+          width="16px"
+          height="16px"
+        />
       </div>
     </div>
   </div>
@@ -87,11 +94,40 @@ span {
 span.headline {
   padding: 0 15px;
 }
-i{
+i {
   width: 15px;
   height: 14px;
   display: inline-block;
-  background: url(https://s3a.pstatp.com/toutiao/feoffline/search/resource/tt_search_runtime/images/icon_xin_3x.5b4253c7.png) no-repeat;
+  background: url(https://s3a.pstatp.com/toutiao/feoffline/search/resource/tt_search_runtime/images/icon_xin_3x.5b4253c7.png)
+    no-repeat;
   background-size: cover;
+}
+span.sum {
+  font-weight: 400;
+  font-size: 12px;
+  color: #999;
+}
+// 排行前三的样式
+.num_1 {
+  color: #f04142;
+}
+.num_2 {
+  color: #999;
+}
+// 更多
+.more {
+  height: 42.6px;
+  line-height: 42.6px;
+  text-align: center;
+}
+.more span {
+  font-size: 14px;
+  color: #000;
+}
+.more img {
+  width: 16px;
+  height: 16px;
+  margin-left: 2px;
+  vertical-align: sub;
 }
 </style>
