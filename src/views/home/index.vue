@@ -1,5 +1,5 @@
 <template>
-  <div class="zh">
+  <div class="home">
     <home-banner></home-banner>
     <home-header></home-header>
     <home-nav :nav_data="nav_data"></home-nav>

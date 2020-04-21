@@ -7,7 +7,7 @@
         <div class="abstrcat">
           <i v-if="item.type == 0">置顶</i>
           <i v-if="item.type == 1">热</i>
-          <span>{{item.from}}</span>
+          <span>{{news_pic_data.from}}</span>
           <span>评论 {{item.comment}}</span>
           <span>{{item.time}}</span>
         </div>
