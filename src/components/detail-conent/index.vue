@@ -79,16 +79,22 @@ export default {
 .text {
   position: relative;
   width: 100%;
+  padding-bottom: 10px;
 }
 .text p {
   line-height: 30px;
 }
 .down {
-  height: 50px;
+  width: 100%;
+  height: 62px;
+  bottom: 2px;
   position: absolute;
-  bottom: -12px;
-  left: 50%;
-  animation: unfold-arrow-animation 300ms infinite alternate;
+  background: linear-gradient(
+    -180deg,
+    rgba(255, 255, 255, 0) 0,
+    #ffffff 100%
+  );
+  text-align: center;
 }
 .down::after {
   content: "";
@@ -98,6 +104,9 @@ export default {
   background: url(https://s1.pstatp.com/growth/mobile_detail/image/vwap_arrow_down.ky914xBY.png)
     no-repeat;
   background-size: cover;
+  position: relative;
+  bottom: -22px;
+  animation: demo 300ms infinite alternate;
 }
 // 打开app
 .app {

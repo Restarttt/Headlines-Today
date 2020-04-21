@@ -4,9 +4,9 @@
     <div class="news_three" v-for="(item,index) of news_three_data" :key="index" @click="go()">
       <h3>{{item.title}}</h3>
       <div class="news_img">
-        <img :src='item.img_1' alt />
-        <img :src='item.img_2' alt />
-        <img :src='item.img_3' alt />
+        <img :src="item.img_1" alt />
+        <img :src="item.img_2" alt />
+        <img :src="item.img_3" alt />
       </div>
       <div class="abstrcat">
         <i v-if="item.type == 0">置顶</i>
@@ -33,8 +33,8 @@ export default {
   },
   computed: {},
   methods: {
-    go(){
-      this.$router.push('/detail')
+    go() {
+      this.$router.push("/detail");
     }
   }
 };
@@ -46,10 +46,9 @@ export default {
   /* margin: 0 15px; */
   border-bottom: 1px solid #f4f5f6;
   padding: 15px 0;
- 
 }
 .news_three {
-  width:100%;
+  width: 100%;
 }
 h3 {
   font-size: 17px;
@@ -58,14 +57,14 @@ h3 {
   text-overflow: ellipsis;
 }
 /* 图片 */
-.news_img{
+.news_img {
   width: 100%;
   display: flex;
   margin-top: 5px;
+  justify-content: space-between;
 }
-img{
-  width: 33.33%;
-
+img {
+  width: 32.666%;
 }
 .abstrcat {
   margin-top: 5px;
