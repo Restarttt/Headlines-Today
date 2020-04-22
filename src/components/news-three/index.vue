@@ -1,19 +1,19 @@
 <template>
   <!-- 三张图模块 -->
   <div class="news-three">
-    <div class="news_three" v-for="(item,index) of news_three_data" :key="index" @click="go()">
-      <h3>{{item.title}}</h3>
+    <div class="news_three"    @click="go()">
+      <h3>{{news_three_data.name}}</h3>
       <div class="news_img">
-        <img :src="item.img_1" alt />
-        <img :src="item.img_2" alt />
-        <img :src="item.img_3" alt />
+        <img :src="news_three_data.img1" alt />
+        <img :src="news_three_data.img2" alt />
+        <img :src="news_three_data.img3" alt />
       </div>
       <div class="abstrcat">
-        <i v-if="item.type == 0">置顶</i>
-        <i v-if="item.type == 1">热</i>
-        <span v-if="item.form">{{item.from}}</span>
-        <span>评论 {{item.comment}}</span>
-        <span span v-if="item.time">{{item.time}}</span>
+        <i v-if="news_three_data.type == 0">置顶</i>
+        <i v-if="news_three_data.type == 1">热</i>
+        <span v-if="news_three_data.author">{{news_three_data.author}}</span>
+        <span>评论 {{news_three_data.comment}}</span>
+        <span span v-if="news_three_data.time">{{news_three_data.time}}</span>
       </div>
     </div>
   </div>
@@ -23,8 +23,8 @@ export default {
   name: "news-three",
   props: {
     news_three_data: {
-      type: Array,
-      default: []
+      type: Object,
+      default: {}
     }
   },
   components: {},

@@ -1,14 +1,14 @@
 <template>
   <!-- 文字模块 -->
   <div class="news-text">
-    <div class="news_title" v-for="(item,index) of news_text_data" :key="index" @click="go()">
-      <h3>{{item.title}}</h3>
+    <div class="news_title" @click="go()">
+      <h3>{{news_text_data.name}}</h3>
       <div class="abstrcat">
-        <i v-if="item.type == 0">置顶</i>
-        <i v-if="item.type == 1">热</i>
-        <span v-if="item.form">{{item.from}}</span>
-        <span>评论 {{item.comment}}</span>
-        <span v-if="item.time">{{item.time}}</span>
+        <i v-if="news_text_data.type == 0">置顶</i>
+        <i v-if="news_text_data.type == 1">热</i>
+        <span v-if="news_text_data.author">{{news_text_data.author}}</span>
+        <span>评论 {{news_text_data.comment}}</span>
+        <span v-if="news_text_data.time">{{news_text_data.time}}</span>
       </div>
     </div>
   </div>
@@ -18,8 +18,8 @@ export default {
   name: "news-text",
   props: {
     news_text_data: {
-      type: Array,
-      default: []
+      type: Object,
+      default: {}
     }
   },
   components: {},
@@ -28,8 +28,8 @@ export default {
   },
   computed: {},
   methods: {
-      go(){
-      this.$router.push('/detail')
+    go() {
+      this.$router.push("/detail");
     }
   }
 };

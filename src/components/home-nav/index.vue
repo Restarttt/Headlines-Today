@@ -3,17 +3,23 @@
   <div class="home-nav">
     <div class="home_nav">
       <ul>
-        <li v-for="(item,index) of nav_data" :key="index" :class="{frist_nav:item.type == 0}">
-          <span >{{item.name}}</span>
+        <li
+          v-for="(item,index) of nav_data"
+          :key="index"
+          :class="{frist_nav:active === index}"
+          @click="num(index,item.name)"
+        >
+          <span>{{item.name}}</span>
         </li>
       </ul>
       <div class="nav_icon">
-        <i></i>
+        <i @click="go()"></i>
       </div>
     </div>
   </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
   name: "home-nav",
   props: {
@@ -24,12 +30,27 @@ export default {
   },
   components: {},
   data() {
-    return {};
+    return {
+      active: 0
+    };
   },
   computed: {},
-  methods: {
-    go(){
+  mounted(){
+    axios.get('https://www.shuipingguo.com/news/').then((res) =>{
+      this.all = res.data.data
 
+
+    })
+
+  },
+  methods: {
+    go() {
+      this.$router.push("/channel");
+    },
+    num(num,name) {
+      console.log(num);
+      this.active = num;
+      this.$store.commit('NAME',this.all)
     }
   }
 };
@@ -71,8 +92,7 @@ ul li span {
   font-weight: 500;
   padding: 5px 10px;
 }
-ul li span:active{
-
+ul li span:active {
 }
 /* 字体样式 */
 li.frist_nav span {

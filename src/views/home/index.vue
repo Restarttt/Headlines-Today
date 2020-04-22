@@ -4,10 +4,17 @@
     <home-header></home-header>
     <home-nav :nav_data="nav_data"></home-nav>
     <div class="main">
-      <div class="submain">
-        <news-text :news_text_data="news_text_data"></news-text>
-        <news-pic :news_pic_data="news_pic_data"></news-pic>
-        <news-three :news_three_data='news_three_data'></news-three>
+      <div class="all" v-for="(item,index) of all" :key="index">
+        <news-pic :news_pic_data="item" v-if="item.id== 1"></news-pic>
+        <news-three :news_three_data="item" v-if="item.id == 2"></news-three>
+        <news-pic :news_pic_data="item" v-if="item.id== 4"></news-pic>
+        <news-pic :news_pic_data="item" v-if="item.id== 6"></news-pic>
+        <news-pic :news_pic_data="item" v-if="item.id== 8"></news-pic>
+        <news-pic :news_pic_data="item" v-if="item.id== 9"></news-pic>
+        <news-text :news_text_data="item" v-if="item.id ==3"></news-text>
+        <news-pic :news_pic_data="item" v-if="item.id== 10"></news-pic>
+        <news-text :news_text_data="item" v-if="item.id ==7"></news-text>
+        <news-three :news_three_data="item" v-if="item.id == 5"></news-three>
       </div>
     </div>
   </div>
@@ -20,6 +27,8 @@ import HomeNav from "../../components/home-nav";
 import NewsText from "../../components/news-text";
 import NewsPic from "../../components/news-pic";
 import NewsThree from "../../components/news-three";
+import AJAX from "../../config/ajax";
+import axios from "axios";
 
 export default {
   components: {
@@ -33,6 +42,7 @@ export default {
 
   data() {
     return {
+      all: [],
       nav_data: [
         {
           name: "推荐",
@@ -82,39 +92,19 @@ export default {
           name: "财经",
           type: 1
         }
-      ],
-      news_text_data: [
-        {
-          title: "助力战“疫”复工复产 习近平为当前网信工作指明方向",
-          from: "人民网",
-          comment: "14",
-          time: "1小时前",
-          type: 1
-        }
-      ],
-      news_pic_data: [
-        {
-          title: "总统表态：向中国索赔不可接受",
-          from: "新京报",
-          img: "https://p3.pstatp.com/list/pgc-image/RwfXWS89t8zeTK",
-          comment: "6",
-          time: "",
-          type: -1
-        }
-      ],
-      news_three_data: [
-        {
-          title: "《清平乐》里的求不得、爱别离……",
-          from: "中国妇女报",
-          img_1: "https://p3.pstatp.com/list/pgc-image/RwMIG8063VXjPW",
-          img_2: "https://p3.pstatp.com/list/pgc-image/RwMIG8V9lpB1m9",
-          img_3: "https://p3.pstatp.com/list/pgc-image/RwMIG97JClxFy",
-          comment: "17",
-          time: "2小时前",
-          type: -1
-        }
       ]
     };
+  },
+  mounted() {
+    // AJAX.getList({
+    //   callback: res => {
+    //     console.log(res)
+    //   }
+    // });
+    axios.get("https://www.shuipingguo.com/news/").then(res => {
+      this.all = res.data.data;
+      console.log(this.all);
+    });
   },
   computed: {},
   methods: {}
@@ -125,7 +115,7 @@ export default {
   width: 100%;
   margin-top: 80px;
 }
-.submain {
+.all {
   margin: 0 15px;
 }
 </style>

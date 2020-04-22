@@ -1,19 +1,19 @@
 <template>
   <!-- 右图模块 -->
   <div class="news-pic">
-    <div class="news_pic" v-for="(item,index) of news_pic_data" :key="index"  @click='go()'>
+    <div class="news_pic" @click="go()">
       <div class="news_l">
-        <h3>{{item.title}}</h3>
+        <h3>{{news_pic_data.name}}</h3>
         <div class="abstrcat">
-          <i v-if="item.type == 0">置顶</i>
-          <i v-if="item.type == 1">热</i>
-          <span v-if="item.form">{{news_pic_data.from}}</span>
-          <span>评论 {{item.comment}}</span>
-          <span v-if="item.time">{{item.time}}</span>
+          <i v-if="news_pic_data.type == 0">置顶</i>
+          <i v-if="news_pic_data.type == 1">热</i>
+          <span v-if="news_pic_data.autor">{{news_pic_data.author}}</span>
+          <span>评论 {{news_pic_data.comment}}</span>
+          <span v-if="news_pic_data.time">{{news_pic_data.time}}</span>
         </div>
       </div>
       <div class="news_r">
-        <img :src="item.img" alt />
+        <img :src="news_pic_data.img1" alt />
       </div>
     </div>
   </div>
@@ -23,8 +23,8 @@ export default {
   name: "news-pic",
   props: {
     news_pic_data: {
-      type: Array,
-      default: []
+      type: Object,
+      default: {}
     }
   },
   components: {},
@@ -33,8 +33,8 @@ export default {
   },
   computed: {},
   methods: {
-      go(){
-      this.$router.push('/detail')
+    go() {
+      this.$router.push("/detail");
     }
   }
 };
@@ -46,15 +46,15 @@ export default {
   /* margin: 0 15px; */
   border-bottom: 1px solid #f4f5f6;
   padding: 15px 0;
- 
 }
 .news_pic {
-  width:100%;
-   display: flex;
-   justify-content: space-between;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 /* 左边 */
-.news_l{
+.news_l {
+  margin-top: 5px;
   width: 62%;
 }
 h3 {

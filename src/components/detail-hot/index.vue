@@ -4,13 +4,13 @@
       <h2>{{hot_data.name}}</h2>
       <div class="hot_img">
         <img :src="hot_data.img_1" alt />
-        <img :src="hot_data.img_1" />
-        <img :src="hot_data.img_1" />
+        <img :src="hot_data.img_2" />
+        <img :src="hot_data.img_3" />
       </div>
       <div class="hot_info">
         <span>打开APP</span>
         <span>{{hot_data.from}}</span>
-        <span>{{hot_data.comment}}条评论</span>
+        <span v-if="hot_data.comment">{{hot_data.comment}}条评论</span>
       </div>
     </div>
   </div>
