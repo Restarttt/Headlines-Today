@@ -38,11 +38,7 @@ const router = new VueRouter({
     routes
 })
 
-export default router
-
-
-
-//懒加载
+export default router //懒加载
 // {
 //     path: '/about',
 //     name: 'About',

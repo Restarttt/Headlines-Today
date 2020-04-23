@@ -12,14 +12,14 @@
     <div class="page">
       <!-- 删除频道 -->
       <div class="channel-delete">
-        <p>{{add.title}}</p>
+        <p>{{data.title}}</p>
         <div class="keyword">
           <ul>
             <li
               v-for="(item,index) of add.list"
               :key="index"
               :class="{frist_word:index===0}"
-              @click="replace(item)"
+              @click="rep(item.name)"
             >
               <a>{{item.name}}</a>
             </li>
@@ -28,7 +28,7 @@
       </div>
       <!-- 增加频道 -->
       <div class="channel-delete">
-        <p>{{data.title}}</p>
+        <p>{{add.title}}</p>
         <div class="keyword">
           <ul>
             <li v-for="(item,index) of data.list" :key="index" :class="{frist_word:index===0}">
@@ -126,8 +126,9 @@ export default {
       this.$router.push("/");
     }
   },
-  replace(name) {
-
+  rep(name) {
+    // this.$store.commit('NAME',name)
+    rep.splice(name,1)
 
   },
   

@@ -89,12 +89,12 @@ export default {
   height: 62px;
   bottom: 2px;
   position: absolute;
-  background: linear-gradient(
-    -180deg,
-    rgba(255, 255, 255, 0) 0,
-    #ffffff 100%
-  );
+  background: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0, #ffffff 100%);
   text-align: center;
+}
+@keyframes demo {
+0%   { top:0px; }
+100%  {bottom:0px; top:5px;}
 }
 .down::after {
   content: "";

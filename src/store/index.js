@@ -6,14 +6,21 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     //state状态管理(通过store.state.name访问)
     state: {
-        name: []
+        num: [],
+        name: ''
+
 
     },
-    // mutations改变store的状态（通过store.commit(‘NAME‘, ‘qian‘)提交修改）
+    // mutations改变store的状态
     mutations: {
+        NUM(state, num) {
+            console.log(num)
+            state.num = num
+        },
         NAME(state, name) {
             console.log(name)
             state.name = name
+
         }
 
     },

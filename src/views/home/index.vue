@@ -42,15 +42,11 @@ export default {
 
   data() {
     return {
-      all: [],
+      // all:[]
       nav_data: [
         {
-          name: "推荐",
+          name: "精选",
           type: 0
-        },
-        {
-          name: "视频",
-          type: 1
         },
         {
           name: "热点",
@@ -58,56 +54,85 @@ export default {
         },
         {
           name: "社会",
-          type: 1
+          type: 2
         },
         {
-          name: "娱乐",
-          type: 1
+          name: "鱼类",
+          type: 3
         },
-        {
-          name: "军事",
-          type: 1
-        },
+
         {
           name: "科技",
-          type: 1
-        },
-        {
-          name: "汽车",
-          type: 1
-        },
-        {
-          name: "房产",
-          type: 1
-        },
-        {
-          name: "家居",
-          type: 1
+          type: 4
         },
         {
           name: "体育",
-          type: 1
+          type: 5
         },
         {
           name: "财经",
-          type: 1
+          type: 6
+        },
+        {
+          name: "军事",
+          type: 7
+        },
+        {
+          name: "国际",
+          type: 8
+        },
+
+        {
+          name: "时尚",
+          type: 9
+        },
+        {
+          name: "旅游",
+          type: 11
         }
+        // {
+        //   name: "汽车",
+        //   type: 1
+        // },
+
+        // {
+        //   name: "房产",
+        //   type: 1
+        // },
+        // {
+        //   name: "家居",
+        //   type: 1
+        // },
+
+        // {
+        //   name: "推荐",
+        //   type: 0
+        // },
+        // {
+        //   name: "视频",
+        //   type: 1
+        // }
       ]
     };
   },
+
+  computed: {
+    all() {
+      return this.$store.state.num;
+    }
+  },
+  methods: {},
   mounted() {
     // AJAX.getList({
     //   callback: res => {
     //     console.log(res)
     //   }
     // });
-    axios.get("https://www.shuipingguo.com/news/").then(res => {
-      this.all = res.data.data;
-      console.log(this.all);
-    });
-  },
-  computed: {},
-  methods: {}
+    // axios.get("https://www.shuipingguo.com/news/").then(res => {
+    //   this.all = res.data.data;
+    //   console.log(this.all);
+    // });
+  }
 };
 </script>
 <style lang="less" scoped>

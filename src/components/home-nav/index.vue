@@ -6,8 +6,8 @@
         <li
           v-for="(item,index) of nav_data"
           :key="index"
-          :class="{frist_nav:active === index}"
-          @click="num(index,item.name)"
+          :class="{frist_nav:active === item.type}"
+          @click="num(item.type,item.name)"
         >
           <span>{{item.name}}</span>
         </li>
@@ -19,7 +19,7 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   name: "home-nav",
   props: {
@@ -35,23 +35,38 @@ export default {
     };
   },
   computed: {},
-  mounted(){
-    axios.get('https://www.shuipingguo.com/news/').then((res) =>{
-      this.all = res.data.data
-
-
-    })
-
-  },
+  mounted() {},
   methods: {
     go() {
       this.$router.push("/channel");
     },
-    num(num,name) {
-      console.log(num);
-      this.active = num;
-      this.$store.commit('NAME',this.all)
+    num(type, name) {
+      console.log(type);
+      this.active = type;
+      console.log(name);
+      this.$store.state.name;
+      axios
+        .get("https://www.shuipingguo.com/news/", { params: { type: type } })
+        .then(res => {
+          this.all = res.data.data;
+          console.log(this.all);
+          this.$store.commit("NUM", this.all).catch(err => {
+            console.log(err);
+          });
+        });
     }
+  },
+  mounted() {
+    axios
+      .get("https://www.shuipingguo.com/news/")
+      .then(res => {
+        this.all = res.data.data;
+        console.log(this.all);
+        this.$store.commit("NUM", this.all);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 };
 </script>
@@ -91,8 +106,6 @@ ul li span {
   font-size: 16px;
   font-weight: 500;
   padding: 5px 10px;
-}
-ul li span:active {
 }
 /* 字体样式 */
 li.frist_nav span {
