@@ -20,13 +20,14 @@
 </template>
 <script>
 import axios from "axios";
+import AJAX from '../../config/ajax'
 export default {
   name: "home-nav",
   props: {
-    nav_data: {
-      type: Array,
-      default: []
-    }
+    // nav_data: {
+    //   type: Array,
+    //   default: []
+    // }
   },
   components: {},
   data() {
@@ -34,8 +35,12 @@ export default {
       active: 0
     };
   },
-  computed: {},
-  mounted() {},
+  computed: {
+    nav_data() {
+      console.log(name);
+      this.$store.state.name;
+    }
+  },
   methods: {
     go() {
       this.$router.push("/channel");
@@ -44,33 +49,36 @@ export default {
       console.log(type);
       this.active = type;
       console.log(name);
-
-      axios
-        .get("https://www.shuipingguo.com/news/", { params: { type: type } })
-        .then(res => {
+      AJAX.getList({
+        callback: res => {
+          console.log(res);
           this.all = res.data.data;
           console.log(this.all);
           this.$store.commit("NUM", this.all);
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    },
-  //  data() {
-  //     this.$store.state.name;
-  //   }
+        }
+      });
+    }
   },
   mounted() {
-    axios
-      .get("https://www.shuipingguo.com/news/")
-      .then(res => {
-        this.all = res.data.data;
-        console.log(this.all);
-        this.$store.commit("NUM", this.all);
-      })
-      .catch(err => {
-        console.log(err);
+    AJAX.getList({
+        callback: res => {
+          console.log(res);
+          this.all = res.data.data;
+          console.log(this.all);
+          this.$store.commit("NUM", this.all);
+        }
       });
+    // axios
+    //   .get("https://www.shuipingguo.com/news/")
+    //   .then(res => {
+    //     console.log(res);
+    //     this.all = res.data.data;
+    //     console.log(this.all);
+    //     this.$store.commit("NUM", this.all);
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
   }
 };
 </script>

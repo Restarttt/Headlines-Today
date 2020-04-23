@@ -19,7 +19,7 @@
               v-for="(item,index) of data.list"
               :key="index"
               :class="{frist_word:index===0}"
-              @click="del(item.name,index)"
+              @click="del(item,index)"
             >
               <a>{{item.name}}</a>
             </li>
@@ -35,7 +35,7 @@
               v-for="(item,index) of add.list"
               :key="index"
               :class="{frist_word:index===0}"
-            
+              @click="append(index)"
             >
               <a>{{item.name}}</a>
             </li>
@@ -130,12 +130,16 @@ export default {
     go() {
       this.$router.push("/");
     },
-    del(name, index) {
+    del(item, index) {
+      console.log(this.data.list);
       console.log(index);
-     this.add.list = this.data.list.splice(index, 1);
-      // this.$store.commit("NAME", name);
+      this.add.list.push(this.data.list.splice(index, 1)[0]);
+      console.log(this.data.list.splice(index, 1));
+      this.$store.commit("NAME", this.data.list);
     },
- 
+    append(index) {
+      this.data.list.push(this.add.list.splice(index, 1)[0]);
+    }
   }
 };
 </script>

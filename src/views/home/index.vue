@@ -111,17 +111,12 @@ export default {
 
   computed: {
     all() {
-      console.log(this.$store.state.num);
       return this.$store.state.num;
     }
   },
   methods: {},
   mounted() {
-    // AJAX.getList({
-    //   callback: res => {
-    //     console.log(res)
-    //   }
-    // });
+
     // axios.get("https://www.shuipingguo.com/news/").then(res => {
     //   this.all = res.data.data;
     //   console.log(this.all);
