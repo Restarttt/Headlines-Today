@@ -16,10 +16,10 @@
         <div class="keyword">
           <ul>
             <li
-              v-for="(item,index) of add.list"
+              v-for="(item,index) of data.list"
               :key="index"
               :class="{frist_word:index===0}"
-              @click="rep(item.name)"
+              @click="del(item.name,index)"
             >
               <a>{{item.name}}</a>
             </li>
@@ -31,7 +31,12 @@
         <p>{{add.title}}</p>
         <div class="keyword">
           <ul>
-            <li v-for="(item,index) of data.list" :key="index" :class="{frist_word:index===0}">
+            <li
+              v-for="(item,index) of add.list"
+              :key="index"
+              :class="{frist_word:index===0}"
+            
+            >
               <a>{{item.name}}</a>
             </li>
           </ul>
@@ -124,14 +129,14 @@ export default {
   methods: {
     go() {
       this.$router.push("/");
-    }
-  },
-  rep(name) {
-    this.$store.commit('NAME',name)
-    rep.splice(name,1)
-
-  },
-  
+    },
+    del(name, index) {
+      console.log(index);
+     this.add.list = this.data.list.splice(index, 1);
+      // this.$store.commit("NAME", name);
+    },
+ 
+  }
 };
 </script>
 <style lang="less" scoped>

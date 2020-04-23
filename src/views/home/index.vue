@@ -5,16 +5,9 @@
     <home-nav :nav_data="nav_data"></home-nav>
     <div class="main">
       <div class="all" v-for="(item,index) of all" :key="index">
-        <news-pic :news_pic_data="item" v-if="item.id== 1"></news-pic>
-        <news-three :news_three_data="item" v-if="item.id == 2"></news-three>
-        <news-pic :news_pic_data="item" v-if="item.id== 4"></news-pic>
-        <news-pic :news_pic_data="item" v-if="item.id== 6"></news-pic>
-        <news-pic :news_pic_data="item" v-if="item.id== 8"></news-pic>
-        <news-pic :news_pic_data="item" v-if="item.id== 9"></news-pic>
-        <news-text :news_text_data="item" v-if="item.id ==3"></news-text>
-        <news-pic :news_pic_data="item" v-if="item.id== 10"></news-pic>
-        <news-text :news_text_data="item" v-if="item.id ==7"></news-text>
-        <news-three :news_three_data="item" v-if="item.id == 5"></news-three>
+        <news-three :news_three_data="item" v-if="item.img3"></news-three>
+        <news-pic :news_pic_data="item" v-else-if="item.img1"></news-pic>
+        <news-text :news_text_data="item" v-else></news-text>
       </div>
     </div>
   </div>
@@ -42,7 +35,7 @@ export default {
 
   data() {
     return {
-      // all:[]
+      // all:[],
       nav_data: [
         {
           name: "精选",
@@ -118,6 +111,7 @@ export default {
 
   computed: {
     all() {
+      console.log(this.$store.state.num);
       return this.$store.state.num;
     }
   },

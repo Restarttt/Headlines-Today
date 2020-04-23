@@ -44,17 +44,21 @@ export default {
       console.log(type);
       this.active = type;
       console.log(name);
-      this.$store.state.name;
+
       axios
         .get("https://www.shuipingguo.com/news/", { params: { type: type } })
         .then(res => {
           this.all = res.data.data;
           console.log(this.all);
-          this.$store.commit("NUM", this.all).catch(err => {
-            console.log(err);
-          });
+          this.$store.commit("NUM", this.all);
+        })
+        .catch(err => {
+          console.log(err);
         });
-    }
+    },
+  //  data() {
+  //     this.$store.state.name;
+  //   }
   },
   mounted() {
     axios
