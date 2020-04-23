@@ -127,7 +127,7 @@ export default {
     }
   },
   rep(name) {
-    // this.$store.commit('NAME',name)
+    this.$store.commit('NAME',name)
     rep.splice(name,1)
 
   },
