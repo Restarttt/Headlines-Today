@@ -19,15 +19,15 @@
   </div>
 </template>
 <script>
-import axios from "axios";
-import AJAX from '../../config/ajax'
+// import axios from "axios";
+import AJAX from "../../config/ajax";
 export default {
   name: "home-nav",
   props: {
-    // nav_data: {
-    //   type: Array,
-    //   default: []
-    // }
+    nav_data: {
+      type: Array,
+      default: []
+    }
   },
   components: {},
   data() {
@@ -36,10 +36,7 @@ export default {
     };
   },
   computed: {
-    nav_data() {
-      console.log(name);
-      this.$store.state.name;
-    }
+ 
   },
   methods: {
     go() {
@@ -55,30 +52,23 @@ export default {
           this.all = res.data.data;
           console.log(this.all);
           this.$store.commit("NUM", this.all);
+        },
+        params:{
+          type:type
         }
       });
     }
   },
   mounted() {
     AJAX.getList({
-        callback: res => {
-          console.log(res);
-          this.all = res.data.data;
-          console.log(this.all);
-          this.$store.commit("NUM", this.all);
-        }
-      });
-    // axios
-    //   .get("https://www.shuipingguo.com/news/")
-    //   .then(res => {
-    //     console.log(res);
-    //     this.all = res.data.data;
-    //     console.log(this.all);
-    //     this.$store.commit("NUM", this.all);
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
+      callback: res => {
+        console.log(res);
+        this.all = res.data.data;
+        console.log(this.all);
+        this.$store.commit("NUM", this.all);
+      },
+
+    });
   }
 };
 </script>

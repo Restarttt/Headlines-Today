@@ -19,7 +19,7 @@
               v-for="(item,index) of data.list"
               :key="index"
               :class="{frist_word:index===0}"
-              @click="del(item,index)"
+              @click="del(index)"
             >
               <a>{{item.name}}</a>
             </li>
@@ -35,7 +35,7 @@
               v-for="(item,index) of add.list"
               :key="index"
               :class="{frist_word:index===0}"
-              @click="append(index)"
+              @click="append(index,item.name)"
             >
               <a>{{item.name}}</a>
             </li>
@@ -60,31 +60,37 @@ export default {
             name: "推荐"
           },
           {
-            name: "社会"
+            name: "热点",
+            type: 1
+          },
+          {
+            name: "社会",
+            type: 2
           },
           {
             name: "娱乐"
           },
           {
-            name: "科技"
+            name: "科技",
+            type: 4
           },
           {
-            name: "军事"
+            name: "军事",
+            type: 7
           },
           {
-            name: "时尚"
+            name: "时尚",
+            type: 9
           },
           {
             name: "养生"
           },
           {
-            name: "旅游"
+            name: "旅游",
+            type: 11
           },
           {
             name: "汽车"
-          },
-          {
-            name: "热点"
           }
         ]
       },
@@ -92,10 +98,12 @@ export default {
         title: "点击添加以下频道",
         list: [
           {
-            name: "体育"
+            name: "体育",
+            type: 5
           },
           {
-            name: "财经"
+            name: "财经",
+            type: 6
           },
           {
             name: "游戏"
@@ -110,7 +118,8 @@ export default {
             name: "美食"
           },
           {
-            name: "育儿"
+            name: "精选",
+            type: 0
           },
           {
             name: "故事"
@@ -130,15 +139,18 @@ export default {
     go() {
       this.$router.push("/");
     },
-    del(item, index) {
-      console.log(this.data.list);
-      console.log(index);
+    del(index) {
+      if (index == 0) {
+        return;
+      }
       this.add.list.push(this.data.list.splice(index, 1)[0]);
-      console.log(this.data.list.splice(index, 1));
       this.$store.commit("NAME", this.data.list);
+      console.log(this.data.list);
     },
-    append(index) {
+    append(index, name) {
+      console.log(index), console.log(name);
       this.data.list.push(this.add.list.splice(index, 1)[0]);
+      console.log(this.add.list.splice(index, 1));
     }
   }
 };

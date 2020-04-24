@@ -3,6 +3,15 @@
   <div class="home-header">
     <div class="home_h">
       <div class="messages"></div>
+      <div class="pop-up">
+        <div class="pop_up">
+          <div class="pop_img"></div>
+          <p>已加载好您感兴趣的头条</p>
+          <div class="go_on">
+            <span>立即打开</span>
+          </div>
+        </div>
+      </div>
       <div class="logo_update">
         <a href>
           <i class="logo"></i>
@@ -10,7 +19,7 @@
         <i class="update"></i>
       </div>
       <!-- <router-link to="/search"> -->
-        <div class="search_glass" @click="go()" ></div>
+      <div class="search_glass" @click="go()"></div>
       <!-- </router-link> 
       <router-view />-->
     </div>
@@ -26,8 +35,8 @@ export default {
   },
   computed: {},
   methods: {
-    go(){
-       this.$router.push('/search')
+    go() {
+      this.$router.push("/search");
     }
   }
 };
@@ -98,5 +107,49 @@ export default {
   background: url(https://s3.pstatp.com/growth/mobile_list/image/feed_ic_search_normal@3x_0f198e56.png)
     no-repeat;
   background-size: 24px;
+}
+
+/* 弹框 */
+.pop-up {
+  width: 360px;
+  height: 100px;
+  position: absolute;
+  z-index: 1000000;
+}
+.pop_up {
+  width: 270px;
+  height: 225px;
+  margin: 55% auto;
+  border-radius: 5px;
+  background: #fff;
+}
+.pop_img {
+  width: 165px;
+  height: 121px;
+  background: url(https://s3a.pstatp.com/growth/mobile_list/image/popup_banner_6006ac97.png)
+    no-repeat;
+  background-size: cover;
+  margin: 10px auto;
+}
+.pop_up p {
+  color: #a5a5a5;
+  font-size: 17px;
+  text-align: center;
+  font-weight: 500;
+}
+.go_on {
+  margin: 20px auto;
+  width: 80%;
+  height: 40px;
+  background-color: #f0221c;
+  text-align: center;
+  border-radius: 5px;
+}
+.go_on span {
+  color: #fff;
+  text-shadow: 0px 1px 1px #f0221c;
+  font-size: 20px;
+
+  line-height: 40px;
 }
 </style>
