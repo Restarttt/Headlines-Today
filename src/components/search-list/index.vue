@@ -19,10 +19,11 @@
           <li v-for="(item,index) of list_data" :key="index">
             <div class="list_l">
               <span
-                :class="{'num_1':item.type ===1,'num_2':item.type===2,'num_3':item.num == 3}"
+                :class="{'num_1':item.num <= 3,'num_2':item.type===2,}"
               >{{item.num}}</span>
               <span class="headline">{{item.name}}</span>
-              <i v-if="item.num <= 3"></i>
+              <i class="new" v-if="item.num <= 3"></i>
+              <i class="hot" v-if="item.type === 8"></i>
             </div>
             <div class="list_r">
               <span class="sum">{{item.max}}</span>
@@ -94,7 +95,7 @@ span {
 span.headline {
   padding: 0 15px;
 }
-i {
+.new {
   width: 15px;
   height: 14px;
   display: inline-block;
@@ -102,6 +103,15 @@ i {
     no-repeat;
   background-size: cover;
 }
+.hot {
+  width: 15px;
+  height: 14px;
+  display: inline-block;
+  background: url(https://s3a.pstatp.com/toutiao/feoffline/search/resource/tt_search_runtime/images/icon_re_3x.346eff2a.png)
+    no-repeat;
+  background-size: cover;
+}
+
 span.sum {
   font-weight: 400;
   font-size: 12px;

@@ -15,14 +15,12 @@ export default new Vuex.Store({
                 type: 1
             },
             {
-                name: "推荐"
-            },
-            {
                 name: "社会",
                 type: 2
             },
             {
-                name: "娱乐"
+                name: "娱乐",
+                type: 11
             },
             {
                 name: "科技",

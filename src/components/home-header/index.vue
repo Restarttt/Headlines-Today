@@ -2,9 +2,10 @@
   <!-- 顶部今日头条 -->
   <div class="home-header">
     <div class="home_h">
-      <div class="messages"></div>
-      <div class="pop-up">
+      <div class="messages" @click="pop()"></div>
+      <div class="pop-up" v-show="pop">
         <div class="pop_up">
+          <div class="fork"></div>
           <div class="pop_img"></div>
           <p>已加载好您感兴趣的头条</p>
           <div class="go_on">
@@ -31,13 +32,18 @@ export default {
   props: {},
   components: {},
   data() {
-    return {};
+    return {
+      pop: false
+    };
   },
   computed: {},
   methods: {
     go() {
       this.$router.push("/search");
-    }
+    },
+    // pop() {
+    //   this.pop == true;
+    // }
   }
 };
 </script>
@@ -111,10 +117,13 @@ export default {
 
 /* 弹框 */
 .pop-up {
-  width: 360px;
-  height: 100px;
-  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
   z-index: 1000000;
+  background: rgba(0, 0, 0, 0.5);
 }
 .pop_up {
   width: 270px;
@@ -122,6 +131,18 @@ export default {
   margin: 55% auto;
   border-radius: 5px;
   background: #fff;
+  position: relative;
+}
+.fork {
+  width: 21px;
+  height: 19px;
+  position: absolute;
+  right: 7px;
+  background: url(https://s3.pstatp.com/growth/mobile_list/image/popup_banner_close_e6f62910.png)
+    no-repeat;
+  background-size: 17px;
+  text-align: center;
+  top: 9px;
 }
 .pop_img {
   width: 165px;

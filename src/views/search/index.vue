@@ -36,7 +36,7 @@ export default {
           num: 3,
           name: "高福谈人传人现象",
           max: "403.0万",
-          type: 1
+          type: 3
         },
         {
           num: 4,
@@ -45,27 +45,27 @@ export default {
           type: 2
         },
         {
-          num: 4,
-          name: "哈尔滨第二医院停诊",
-          max: "326.6万",
+          num: 5,
+          name: "张国伟用脚扣篮",
+          max: "431.9万",
           type: 2
         },
         {
-          num: 4,
-          name: "哈尔滨第二医院停诊",
-          max: "326.6万",
+          num: 6,
+          name: "缅甸发生武装冲突",
+          max: "433.0万",
+          type: 8
+        },
+        {
+          num: 7,
+          name: "李国庆爆新东方猛料",
+          max: "380.3万",
           type: 2
         },
         {
-          num: 4,
-          name: "哈尔滨第二医院停诊",
-          max: "326.6万",
-          type: 2
-        },
-        {
-          num: 4,
-          name: "哈尔滨第二医院停诊",
-          max: "326.6万",
+          num: 8,
+          name: "傅园慧无缘奥运集训",
+          max: "333.6万",
           type: 2
         }
       ]
