@@ -2,10 +2,10 @@
   <!-- 顶部今日头条 -->
   <div class="home-header">
     <div class="home_h">
-      <div class="messages" @click="pop()"></div>
+      <div class="messages" @click="on()"></div>
       <div class="pop-up" v-show="pop">
         <div class="pop_up">
-          <div class="fork"></div>
+          <div class="fork" @click="del()"></div>
           <div class="pop_img"></div>
           <p>已加载好您感兴趣的头条</p>
           <div class="go_on">
@@ -41,9 +41,12 @@ export default {
     go() {
       this.$router.push("/search");
     },
-    // pop() {
-    //   this.pop == true;
-    // }
+    on() {
+      this.pop = true;
+    },
+    del(){
+      this.pop = false
+    }
   }
 };
 </script>
